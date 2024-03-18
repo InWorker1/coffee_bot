@@ -2,7 +2,7 @@ import telebot
 import time
 from telebot import types
 
-bot = telebot.TeleBot('6190440272:AAFpX1fZTeeR2RI_3meYc3qsXfmUiH92YkU')
+bot = telebot.TeleBot('')
 
 count = 0
 stats = []
