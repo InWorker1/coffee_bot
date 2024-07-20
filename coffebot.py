@@ -113,9 +113,11 @@ def loyal(txt, sumc):
         conn.commit()
         conn.close()
     else:
-        com = cursor.execute(f'SELECT comming FORM users WHERE number = "{txt[0]}"')[0]
-        cursor.execute(f'UPDATE users SET comming = "{com + 1}" WHERE number = "{txt[0]}"')
-        sum_cush = cursor.execute(f'SELECT summa FROM users WHERE number = "{txt[0]}"')[0]
+        com = cursor.execute(f'SELECT coming FROM users WHERE number = "{txt[0]}"').fetchone()[0]
+        print(com)
+        cursor.execute(f'UPDATE users SET coming = "{com + 1}" WHERE number = "{txt[0]}"')
+        conn.commit()
+        sum_cush = cursor.execute(f'SELECT summa FROM users WHERE number = "{txt[0]}"').fetchone()[0]
         cursor.execute(f'UPDATE users SET summa = "{sum_cush + sumc}" WHERE number = "{txt[0]}"')
         print(1)
         conn.commit()
